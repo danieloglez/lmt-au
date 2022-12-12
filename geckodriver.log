@@ -1,0 +1,35 @@
+1669129189638	geckodriver	INFO	Listening on 127.0.0.1:54113
+1669129190151	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "53309" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile0UHdRj"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1669129193048	Marionette	INFO	Marionette enabled
+1669129193061	Marionette	INFO	Listening on port 35643
+Read port: 35643
+WebDriver BiDi listening on ws://127.0.0.1:53309
+1669129193456	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile0UHdRj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53309/devtools/browser/aebcec6d-c225-47cd-94d7-17e8eaf7bf86
+1669129237304	Marionette	INFO	Stopped listening on port 35643
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669129890017	geckodriver	INFO	Listening on 127.0.0.1:46123
+1669129890518	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "52505" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilePHrBqZ"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1669129893834	Marionette	INFO	Marionette enabled
+1669129893852	Marionette	INFO	Listening on port 44613
+Read port: 44613
+WebDriver BiDi listening on ws://127.0.0.1:52505
+1669129894451	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilePHrBqZ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52505/devtools/browser/cb773bec-8c3a-4906-abde-5a64b5e7589d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://app.suredone.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://app.suredone.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://app.suredone.com."
+JavaScript error: https://app.suredone.com/automations/custom-2015/instructions/theme-theme.js, line 1: SyntaxError: expected expression, got '<'
+JavaScript error: https://app.suredone.com/static/js/0.2169f12d.chunk.js, line 1: Error: couldn't load module ace/theme/ or it didn't call define
+1669130170080	Marionette	INFO	Stopped listening on port 44613
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
