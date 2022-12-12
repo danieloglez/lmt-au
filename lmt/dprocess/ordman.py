@@ -2,13 +2,14 @@ import glob
 import json
 import pandas as pd
 
-DIRTY_DIR = 'data/dirty'
-CLEAN_DIR = 'data/clean'
+DIRTY_DIR = 'data/order/dirty'
+CLEAN_DIR = 'data/order/clean'
+PROCESS_PATH = 'data/order/process.json'
 
 
 def switch_days():
     # Read process json
-    with open('data/process.json', 'r') as f:
+    with open(PROCESS_PATH, 'r') as f:
         process = json.load(f)
 
     # Extract new filename
@@ -19,13 +20,13 @@ def switch_days():
     process['order'] = list(set(order))
 
     # Save process json
-    with open('data/process.json', 'w') as f:
+    with open(PROCESS_PATH, 'w') as f:
         json.dump(process, f)
 
 
 def clean_current_orders(extension='csv'):
     # Read process json
-    with open('data/process.json', 'r') as f:
+    with open(PROCESS_PATH, 'r') as f:
         process = json.load(f)
 
     # Extract filenames
