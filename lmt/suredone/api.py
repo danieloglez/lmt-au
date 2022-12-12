@@ -4,6 +4,9 @@ import pandas as pd
 from tqdm import tqdm
 from datetime import datetime
 
+
+DIRTY_DIR = 'data/order/dirty'
+
 E_AWAITING = 'https://api.suredone.com/v1/orders/awaiting'
 
 HEADERS = {
@@ -55,7 +58,7 @@ def get_awaiting_orders():
             f'{E_AWAITING}?page={i}', headers=HEADERS).json(), orders_dict)
 
     df = pd.DataFrame(orders_dict)
-    df.to_csv(f'data/dirty/{datetime.today().strftime("%Y%m%d")}.csv', index=False)
+    df.to_csv(f'{DIRTY_DIR}/{datetime.today().strftime("%Y%m%d")}.csv', index=False)
 
 
 def process_orders_page(orders_page, orders_dict):

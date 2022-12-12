@@ -13,3 +13,7 @@ if __name__ == '__main__':
 
     # Keep new records only
     ordman.clean_current_orders()
+
+    # Send email
+    for email in ['josedanielgarciaglez@gmail.com', 'importexportoffice3@gmail.com', 'importexportoffice2@gmail.com']:
+        ordman.send_email('josedanielgarciaglez@outlook.com', email)
