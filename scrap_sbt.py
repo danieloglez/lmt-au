@@ -2,6 +2,7 @@ import pandas as pd
 from tqdm import tqdm
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
 
 from lmt.dprocess import scrapman
 from lmt.vendor import sbt
@@ -9,18 +10,21 @@ from lmt.vendor import sbt
 
 if __name__ == '__main__':
     # Init file
-    # dman.init('data/rinput/sbt-notlisted.csv', 'sbt', 'notlisted_revision')
+    # scrapman.init('data/scrap/rinput/sbt-ordpn_match.csv', 'sbt', 'sdlisted')
 
-    FILENAME = '202212070957-4319-sbt-notlisted_revision'
+    FILENAME = '202301060935-1366-sbt-sdlisted'
+    COLUMN = 'orderingpn'
+    ADDITIONAL = ['sku']
 
     # Clean file
     # dman.clean(filename=FILENAME)
 
     # Get remaining
-    rem = dman.get_remaining(filename=FILENAME, column='Part #')
+    rem = scrapman.get_remaining(filename=FILENAME)
 
     # Initialize WebDriver
-    driver = webdriver.Firefox(service=Service('webdriver/geckodriver'))
+    # driver = webdriver.Firefox(service=Service('webdriver/geckodriver'))
+    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
     # Get WebPage
     driver.get('https://www.shopsbt.com/BASK.html')
@@ -30,7 +34,8 @@ if __name__ == '__main__':
 
     # Scrap
     for i in tqdm(range(len(rem))):
-        sbt.search(driver, rem[i], wait_time=2)
-        m = sbt.find_match(driver, rem[i], wait_time=2)
+        print(rem)
+        sbt.search(driver, rem.iloc[i][COLUMN], wait_time=2)
+        m = sbt.find_match(driver, rem.iloc[i][COLUMN], wait_time=2)
 
-        dman.process(filename=FILENAME, info=m, success=not pd.isna(m['part_number']))
+        scrapman.process(filename=FILENAME, info=m, additional=rem.iloc[[i]][ADDITIONAL].to_dict(), success=not pd.isna(m['part_number']))

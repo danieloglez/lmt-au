@@ -14,22 +14,22 @@ CLEAN_DIR = 'data/order/clean'
 PROCESS_PATH = 'data/order/process.json'
 
 
-def switch_days():
-    # Read process json
-    with open(PROCESS_PATH, 'r') as f:
-        process = json.load(f)
-
-    # Extract new filename
-    new_filename = glob.glob(f'{DIRTY_DIR}/*')[-1].split('/')[-1].replace('.csv', '')
-
-    # Set new current if different
-    if new_filename != process['current']:
-        process['previous'] = process['current']
-        process['current'] = new_filename
-
-    # Save process json
-    with open(PROCESS_PATH, 'w') as f:
-        json.dump(process, f)
+# def switch_days():
+#     # Read process json
+#     with open(PROCESS_PATH, 'r') as f:
+#         process = json.load(f)
+#
+#     # Extract new filename
+#     new_filename = glob.glob(f'{DIRTY_DIR}/*')[-1].split('/')[-1].replace('.csv', '')
+#
+#     # Set new current if different
+#     if new_filename != process['current']:
+#         process['previous'] = process['current']
+#         process['current'] = new_filename
+#
+#     # Save process json
+#     with open(PROCESS_PATH, 'w') as f:
+#         json.dump(process, f)
 
 
 def clean_current_orders(extension='csv'):

@@ -39,7 +39,7 @@ def init(filepath: str, vendor: str, description='', extension='csv'):
         json.dump(process, f)
 
 
-def get_remaining(filename, column, extension='csv'):
+def get_remaining(filename, extension='csv'):
     # Get current row
     with open(PROCESS_PATH, 'r') as f:
         process = json.load(f)
@@ -52,15 +52,18 @@ def get_remaining(filename, column, extension='csv'):
     # Read file
     df = pd.read_csv(f'{INPUT_DIR}/{filename}.{extension}')
 
-    return df[crow:][column].to_list()
+    return df[crow:]
 
 
-def process(filename, info, success, extension='csv'):
+def process(filename, info, additional, success, extension='csv'):
     # Check process key
     with open(PROCESS_PATH, 'r') as f:
         process = json.load(f)
 
     v = process[filename]
+
+    for k, v in additional.items():
+        info[k] = v
 
     # Add info to correct file
     if success:

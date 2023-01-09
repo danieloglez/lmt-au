@@ -1,11 +1,13 @@
 import math
 import requests
+import json
 import pandas as pd
 from tqdm import tqdm
 from datetime import datetime
 
 
 DIRTY_DIR = 'data/order/dirty'
+PROCESS_PATH = 'data/order/process.json'
 
 E_AWAITING = 'https://api.suredone.com/v1/orders/awaiting'
 
@@ -41,7 +43,7 @@ FIELD_MAP = {
 
 
 def n_pages():
-    return math.ceil(float(requests.get(E_AWAITING, headers=HEADERS).json()['all']) / 50)
+    return math.ceil(float(requests.get(E_AWAITING, headers=HEADERS).json()['all']) / 50) + 1
 
 
 def get_awaiting_orders():
@@ -57,8 +59,24 @@ def get_awaiting_orders():
         process_orders_page(requests.get(
             f'{E_AWAITING}?page={i}', headers=HEADERS).json(), orders_dict)
 
+    # Create new_filename
+    filename = datetime.today().strftime("%Y%m%d")
+
+    # Read process json
+    with open(PROCESS_PATH, 'r') as f:
+        process = json.load(f)
+
+    # Set new current if different
+    if filename != process['current']:
+        process['previous'] = process['current']
+        process['current'] = filename
+
+    # Save process json
+    with open(PROCESS_PATH, 'w') as f:
+        json.dump(process, f)
+
     df = pd.DataFrame(orders_dict)
-    df.to_csv(f'{DIRTY_DIR}/{datetime.today().strftime("%Y%m%d")}.csv', index=False)
+    df.to_csv(f'{DIRTY_DIR}/{filename}.csv', index=False)
 
 
 def process_orders_page(orders_page, orders_dict):
