@@ -38,7 +38,8 @@ FIELD_MAP = {
     'warehouse': 'WAREHOUSE',
     'bigcommerceprice': 'bigcommerceprice',
     'amznprice': 'amznprice',
-    'walmartprice': 'walmartprice'
+    'walmartprice': 'walmartprice',
+    'ebayid': 'ebayid'
 }
 
 
@@ -61,6 +62,7 @@ def get_awaiting_orders():
 
     # Create new_filename
     filename = datetime.today().strftime("%Y%m%d")
+    # filename = '20230109-TEST'
 
     # Read process json
     with open(PROCESS_PATH, 'r') as f:
