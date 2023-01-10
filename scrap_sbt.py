@@ -10,11 +10,11 @@ from lmt.vendor import sbt
 
 if __name__ == '__main__':
     # Init file
-    # scrapman.init('data/scrap/rinput/sbt-ordpn_match.csv', 'sbt', 'sdlisted')
+    # scrapman.init('data/scrap/rinput/20230109-sbtpricelist_unmatched.csv', 'sbt', 'sbtnotlisted')
 
-    FILENAME = '202301060935-1366-sbt-sdlisted'
-    COLUMN = 'orderingpn'
-    ADDITIONAL = ['sku']
+    FILENAME = '20230109-sbtpricelist_unmatched'
+    COLUMN = 'sbt_partnumber'
+    ADDITIONAL = ['sbt_title', 'sbt_dealercost']
 
     # Clean file
     # dman.clean(filename=FILENAME)
