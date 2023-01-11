@@ -7,12 +7,11 @@ from webdriver_manager.firefox import GeckoDriverManager
 from lmt.dprocess import scrapman
 from lmt.vendor import sbt
 
-
 if __name__ == '__main__':
     # Init file
     # scrapman.init('data/scrap/rinput/20230109-sbtpricelist_unmatched.csv', 'sbt', 'sbtnotlisted')
 
-    FILENAME = '20230109-sbtpricelist_unmatched'
+    FILENAME = '202301101331-9298-sbt-sbtnotlisted'
     COLUMN = 'sbt_partnumber'
     ADDITIONAL = ['sbt_title', 'sbt_dealercost']
 
@@ -38,4 +37,5 @@ if __name__ == '__main__':
         sbt.search(driver, rem.iloc[i][COLUMN], wait_time=2)
         m = sbt.find_match(driver, rem.iloc[i][COLUMN], wait_time=2)
 
-        scrapman.process(filename=FILENAME, info=m, additional=rem.iloc[[i]][ADDITIONAL].to_dict(), success=not pd.isna(m['part_number']))
+        scrapman.process(filename=FILENAME, info=m, additional=rem.iloc[[i]][ADDITIONAL].to_dict(),
+                         success=not pd.isna(m['part_number']))

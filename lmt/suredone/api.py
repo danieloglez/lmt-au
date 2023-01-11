@@ -39,7 +39,8 @@ FIELD_MAP = {
     'bigcommerceprice': 'bigcommerceprice',
     'amznprice': 'amznprice',
     'walmartprice': 'walmartprice',
-    'ebayid': 'ebayid'
+    'ebayid': 'ebayid',
+    'inventorydate': 'inventorydate'
 }
 
 
