@@ -671,3 +671,5 @@ JavaScript error: https://www.shopsbt.com/jetski/yamaha-valve-bucket-exhaust-3fv
 JavaScript error: https://www.shopsbt.com/jetski/Yamaha-guide-stopper-1-8-fxsho-fzs-6S5-12241-00-00.html, line 1729: TypeError: document.getElementById(...) is null
 JavaScript error: https://www.shopsbt.com/jetski/Yamaha-piston-ring-set-1-8-L-na-vxr-vxs-68b-11631.html, line 1715: TypeError: document.getElementById(...) is null
 JavaScript error: https://www.shopsbt.com/jetski/yamaha-top-end-kit-1300-pv-2003-2004-pwc-jet-ski.html, line 1952: TypeError: document.getElementById(...) is null
+1673628874304	Marionette	INFO	Stopped listening on port 35857
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
